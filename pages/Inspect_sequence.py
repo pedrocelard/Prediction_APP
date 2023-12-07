@@ -35,11 +35,11 @@ with col1:
     filenames = [dir for dir in os.listdir(folder_path) if (os.path.isdir(os.path.join(folder_path, dir)))]
     selected_filename = st.selectbox('Select a case', filenames, key="IS_case_sel")
     casename = os.path.join(folder_path, selected_filename)
-    st.write('You selected `%s`' % casename)
+    # st.write('You selected `%s`' % casename)
 
     # Select an overview path
     filenames = [dir for dir in os.listdir(casename) if (os.path.isdir(os.path.join(casename, dir)))]
-    selected_filename = st.selectbox('Select a sequence', filenames, key="IS_over_sel")
+    selected_filename = st.selectbox('Select an overview', filenames, key="IS_over_sel")
     filename = os.path.join(casename, selected_filename).replace("\\","/")
     st.write('You selected `%s`' % filename)
 

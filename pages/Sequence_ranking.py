@@ -22,6 +22,7 @@ st.markdown(
 )
 
 # TODO: Manual ranking of a sequence (up and down buttons)
+# TODO: Delete overview sequence (delete button)
 # TODO: Inspect sequence -> Go to its page with curren selection
 
 # Select a case path
@@ -43,15 +44,20 @@ with col1:
 
 if(selected_filename != "case_0"):
 
+    # Specify the path to your JSON file
+    json_file_path = os.path.join(casename,"case_info.json")
+    
+    # Read the JSON file
+    with open(json_file_path, "r") as file:
+        data = json.load(file)
+
+    if (data["overview_maual_ranking"]):
+        st.success(f'This ranking was modified by the user')
+
     # Loop over every overview for each case
-    for overview in overview_folder:
+    for overview in data["overview_ranking"]:
         
-        # Specify the path to your JSON file
-        json_file_path = os.path.join(casename,"case_info.json")
-        
-        # Read the JSON file
-        with open(json_file_path, "r") as file:
-            data = json.load(file)
+        overview = os.path.join(casename, overview)
 
         # Get the overview identifier name
         overview_id_value = os.path.basename(overview)

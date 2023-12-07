@@ -4,8 +4,8 @@ import numpy as np
 
 import scipy
 
-from utils.pingouin.pingouin import ancova, welch_anova, anova
-import utils.pingouin.pingouin as pg
+from pingouin import ancova
+import pingouin as pg
 
 class DASA_metric():
         

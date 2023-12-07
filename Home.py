@@ -6,6 +6,7 @@ import numpy as np
 # print(msg)
 # print(np.random.randint(1,9))
 
+st.session_state.lang = 'en'
 
 st.set_page_config(
     page_title="Hello",
